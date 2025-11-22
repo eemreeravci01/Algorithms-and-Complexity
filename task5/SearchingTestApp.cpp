@@ -10,5 +10,5 @@ int main()
 	int result_vector;
 	result_vector = binarySearchFirst(v, 70);
 	std::cout << result << std::endl << result_vector << std::endl;
-	
+
 }
