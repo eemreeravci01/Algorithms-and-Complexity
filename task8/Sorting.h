@@ -64,9 +64,38 @@ void selectionSort(std::vector<T> &v, Compare comp)
     int len = v.size();
     for(int i = 0; i < len -1;i++)
     {
-        //write here
+        int min = i;
+        for (int j = i + 1; j < len; j++)
+        {
+            if (!comp(v[min], v[j]))
+            {
+                min = j;   
+            }
+            
+        }
+        T temp;
+        temp = v[min];
+        v[min] = v[i];
+        v[i] = temp;
     }
 
+}
+
+template <typename T, typename Compare>
+void insertionSort(std::vector<T> &v, Compare comp)
+{
+    int len  = v.size();
+    for(int i = 1; i < len; i++)
+    {
+        T key = v[i];
+        int j = i - 1;
+        while (j >= 0 && comp(key, v[j]))
+        {
+            v[j + 1] = v[j];
+            j--;        
+        }
+        v[j+1] = key;
+    }
 }
 
 #endif
